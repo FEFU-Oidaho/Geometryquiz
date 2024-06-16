@@ -1,58 +1,37 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './style/index.css';
+import Header from './components/header';
+import Content from './components/content';
+import question_list from './data/data';
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+    useParams
+} from 'react-router-dom';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.body);
 
 let MainComponent = (props) => {
-  const [currentSquare, setCurrentSquare] = useState(1);
+   let { task_id } = useParams();
 
-  const handleDragStart = (e, square) => {
-    e.dataTransfer.setData('square', square);
-  };
-
-  const handleDragOver = (e) => {
-    e.preventDefault();
-  };
-
-  const handleDrop = (e, square) => {
-    const draggedSquare = e.dataTransfer.getData('square');
-    if (draggedSquare) {
-      setCurrentSquare(square);
-    }
-  };
-
-  return (
-    <div className="container">
-      <div
-        className={`square ${currentSquare === 1 ? 'occupied' : ''}`}
-        onDragOver={handleDragOver}
-        onDrop={(e) => handleDrop(e, 1)}
-      >
-        {currentSquare === 1 && (
-          <div
-            className="circle"
-            draggable
-            onDragStart={(e) => handleDragStart(e, 1)}
-          ></div>
-        )}
-      </div>
-      <div
-        className={`square ${currentSquare === 2 ? 'occupied' : ''}`}
-        onDragOver={handleDragOver}
-        onDrop={(e) => handleDrop(e, 2)}
-      >
-        {currentSquare === 2 && (
-          <div
-            className="circle"
-            draggable
-            onDragStart={(e) => handleDragStart(e, 2)}
-          ></div>
-        )}
-      </div>
-    </div>
-  );
+    return (
+        <>
+            <Header />
+            <Content task={ question_list[1] }/>
+        </>
+    );
 }
 
+const Routing = () => {
+    return (
+        <BrowserRouter>
+          <Routes>
+            <Route path="/:number"/> { <MainComponent /> }
+          </Routes>
+        </BrowserRouter>
+      );
+}
 
 root.render(<MainComponent />);

@@ -1,27 +1,48 @@
-.container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 100vh;
+:root {
+    --primary-color: #f5f5f5; /* Молочный белый */
+    --secondary-color: #e0e0e0; /* Светло-серый */
+    --accent-color: #ffc0cb; /* Пастельный розовый */
+    --background-color: #ffffff; /* Белый */
+    --text-color: black; /* Темно-серый */
 }
 
-.square {
-  width: 150px;
-  height: 150px;
-  border: 2px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.circle {
-  width: 50px;
-  height: 50px;
-  background-color: blue;
-  border-radius: 50%;
-  cursor: grab;
+body {
+    background-color: var(--background-color);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+
+    width: 100svw;
+    height: 100svh;
 }
 
-.occupied {
-  background-color: lightgray;
+body .plate {
+    background-color: var(--secondary-color);
+
+    border-radius: 20px;
+    border: solid thin lightgray;
 }
+
+
+.noto-sans-700 {
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings: 
+        "wdth" 100;
+}
+
+.archivo-black-800 {
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+  

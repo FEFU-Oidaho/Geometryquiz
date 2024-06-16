@@ -1,0 +1,12 @@
+.content {
+
+    width: calc(100% - 20px);
+    height: calc(91% - 10px);
+
+    margin: 0px 10px 10px 10px;
+
+    display: grid;
+    grid-template-columns: 0.6fr 1fr;
+    grid-template-rows: 1fr 0.15fr;
+    gap: 10px;
+}
