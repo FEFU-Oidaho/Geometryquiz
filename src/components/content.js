@@ -9,7 +9,7 @@ let Content = (props) => {
     const get_image = (task_data) => {
         return task_data["image_path"];
     };
-
+    
     const get_questions = (task_data) => {
         return task_data["questions"].map(e => {
             let question_id = e["question_id"];
