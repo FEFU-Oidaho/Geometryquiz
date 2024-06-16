@@ -5,7 +5,7 @@ let Image = (props) => {
     return (
         <>
             <div className={"plate image"}>
-                <img src={ props.image }/>
+                <img src={ props.image } draggable='false'/>
             </div>
         </>
     );
