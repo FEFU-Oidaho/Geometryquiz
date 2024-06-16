@@ -5,6 +5,7 @@ let Image = (props) => {
     return (
         <>
             <div className={"plate image"}>
+                
             </div>
         </>
     );

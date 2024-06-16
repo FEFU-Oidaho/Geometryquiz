@@ -19,7 +19,7 @@ let MainComponent = (props) => {
     return (
         <>
             <Header />
-            <Content task={ question_list[1] }/>
+            <Content task={ question_list[0] }/>
         </>
     );
 }
