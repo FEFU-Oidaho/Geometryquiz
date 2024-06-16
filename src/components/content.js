@@ -12,22 +12,18 @@ let Content = (props) => {
     
     const get_questions = (task_data) => {
         return task_data["questions"].map(e => {
-            let question_id = e["question_id"];
             let question_text = e["text"];
 
-            return { question_id : question_text }
+            return question_text 
         })
     };
 
     const get_answers = (task_data) => {
         return task_data["questions"].map(e => {
-            let question_id = e["question_id"];
             let answers = e["answers"];
-
-            return { question_id : answers }
+            return answers
         })
     };
-
 
     return (
         <>

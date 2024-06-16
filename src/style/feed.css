@@ -5,5 +5,22 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.feed > .card {
+    background-color: var(--primary-color);
+    width: 30%;
+    height: 50%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
+}
+
+.feed > .card img {
+    width: 50%;
+    height: 90%;
 }
