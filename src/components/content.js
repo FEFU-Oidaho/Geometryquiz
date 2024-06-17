@@ -21,7 +21,7 @@ let Content = (props) => {
             q_element.answers.forEach((a_element, index) => {
                 feed.push(
                     {
-                        id: `card_${q_element.question_id}_${index}`, 
+                        id: `card_${q_element.question_id}_${index+1}`, 
                         img: a_element
                     }
                 )
@@ -44,12 +44,35 @@ let Content = (props) => {
         return conts;
     }
     
-    const check_answers = () => {
+    const check_answers = (question_data) => {
+        let result_checking = true;
 
+        question_data.forEach((question, index) => {
+                if (containers[index].items.length != question.answers.length) {
+                    result_checking =  false
+                }
+                containers[index].items.forEach(card => {
+                    if (!card.id.includes(`card_${index+1}`)){
+                        result_checking =  false
+                    }
+                })
+            }
+        )
 
+        return result_checking
     }
 
-    
+    const show_result = (question_data) => {
+        let check =  check_answers(question_data);
+
+        if (check) {
+            alert("Верно")
+        } else {
+            alert("Неверно")
+        }
+    }
+
+
     let defaultConts = formStartContainers(props.task.questions);
 
     const [draggedItem, setDraggedItem] = useState(null);
@@ -143,7 +166,7 @@ let Content = (props) => {
                         ))}
                     </div>
                     <div className={"button "}>
-                        <input type='button' value={"Проверить"} className='archivo-black-800'></input>
+                        <input type='button' value={"Проверить"} className='archivo-black-800' onClick={ () => show_result(props.task.questions)}></input>
                         <input type='submit' value={"Очистить"} className='archivo-black-800' onClick={ backToDefault }></input>
                     </div>
                 </div>
